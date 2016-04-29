@@ -15,6 +15,11 @@
 		12E43B7A1CD27FDC0085E337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12E43B781CD27FDC0085E337 /* LaunchScreen.storyboard */; };
 		12E43B851CD27FDD0085E337 /* ScrapbookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43B841CD27FDD0085E337 /* ScrapbookTests.swift */; };
 		12E43B901CD27FDD0085E337 /* ScrapbookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43B8F1CD27FDD0085E337 /* ScrapbookUITests.swift */; };
+		12E43BA11CD285120085E337 /* Collection+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43B9D1CD285120085E337 /* Collection+CoreDataProperties.swift */; };
+		12E43BA21CD285120085E337 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43B9E1CD285120085E337 /* Collection.swift */; };
+		12E43BA31CD285120085E337 /* Clipping+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43B9F1CD285120085E337 /* Clipping+CoreDataProperties.swift */; };
+		12E43BA41CD285120085E337 /* Clipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43BA01CD285120085E337 /* Clipping.swift */; };
+		12E43BAA1CD28AE40085E337 /* ScrapbookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43BA91CD28AE40085E337 /* ScrapbookModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		12E43B8B1CD27FDD0085E337 /* ScrapbookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrapbookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E43B8F1CD27FDD0085E337 /* ScrapbookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapbookUITests.swift; sourceTree = "<group>"; };
 		12E43B911CD27FDD0085E337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12E43B9D1CD285120085E337 /* Collection+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		12E43B9E1CD285120085E337 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		12E43B9F1CD285120085E337 /* Clipping+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Clipping+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		12E43BA01CD285120085E337 /* Clipping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clipping.swift; sourceTree = "<group>"; };
+		12E43BA91CD28AE40085E337 /* ScrapbookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapbookModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,11 @@
 				12E43B781CD27FDC0085E337 /* LaunchScreen.storyboard */,
 				12E43B7B1CD27FDC0085E337 /* Info.plist */,
 				12E43B731CD27FDC0085E337 /* Scrapbook.xcdatamodeld */,
+				12E43B9D1CD285120085E337 /* Collection+CoreDataProperties.swift */,
+				12E43B9E1CD285120085E337 /* Collection.swift */,
+				12E43B9F1CD285120085E337 /* Clipping+CoreDataProperties.swift */,
+				12E43BA01CD285120085E337 /* Clipping.swift */,
+				12E43BA91CD28AE40085E337 /* ScrapbookModel.swift */,
 			);
 			path = Scrapbook;
 			sourceTree = "<group>";
@@ -263,8 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				12E43B6F1CD27FDC0085E337 /* ViewController.swift in Sources */,
+				12E43BA31CD285120085E337 /* Clipping+CoreDataProperties.swift in Sources */,
+				12E43BA21CD285120085E337 /* Collection.swift in Sources */,
+				12E43BA11CD285120085E337 /* Collection+CoreDataProperties.swift in Sources */,
 				12E43B751CD27FDC0085E337 /* Scrapbook.xcdatamodeld in Sources */,
+				12E43BAA1CD28AE40085E337 /* ScrapbookModel.swift in Sources */,
 				12E43B6D1CD27FDC0085E337 /* AppDelegate.swift in Sources */,
+				12E43BA41CD285120085E337 /* Clipping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +509,7 @@
 				12E43B961CD27FDD0085E337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12E43B971CD27FDD0085E337 /* Build configuration list for PBXNativeTarget "ScrapbookTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +518,7 @@
 				12E43B991CD27FDD0085E337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12E43B9A1CD27FDD0085E337 /* Build configuration list for PBXNativeTarget "ScrapbookUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +527,7 @@
 				12E43B9C1CD27FDD0085E337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
