@@ -20,6 +20,9 @@
 		12E43BA31CD285120085E337 /* Clipping+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43B9F1CD285120085E337 /* Clipping+CoreDataProperties.swift */; };
 		12E43BA41CD285120085E337 /* Clipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43BA01CD285120085E337 /* Clipping.swift */; };
 		12E43BAA1CD28AE40085E337 /* ScrapbookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43BA91CD28AE40085E337 /* ScrapbookModel.swift */; };
+		12E43BB61CD39C0B0085E337 /* CollectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43BB51CD39C0B0085E337 /* CollectionListViewController.swift */; };
+		12E43BB81CD3CD710085E337 /* ClippingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43BB71CD3CD710085E337 /* ClippingListViewController.swift */; };
+		12E43BBA1CD5E7250085E337 /* ClippingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E43BB91CD5E7250085E337 /* ClippingDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		12E43B9F1CD285120085E337 /* Clipping+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Clipping+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		12E43BA01CD285120085E337 /* Clipping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clipping.swift; sourceTree = "<group>"; };
 		12E43BA91CD28AE40085E337 /* ScrapbookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapbookModel.swift; sourceTree = "<group>"; };
+		12E43BB51CD39C0B0085E337 /* CollectionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionListViewController.swift; sourceTree = "<group>"; };
+		12E43BB71CD3CD710085E337 /* ClippingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClippingListViewController.swift; sourceTree = "<group>"; };
+		12E43BB91CD5E7250085E337 /* ClippingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClippingDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +117,9 @@
 			children = (
 				12E43B6C1CD27FDC0085E337 /* AppDelegate.swift */,
 				12E43B6E1CD27FDC0085E337 /* ViewController.swift */,
+				12E43BB91CD5E7250085E337 /* ClippingDetailViewController.swift */,
 				12E43B701CD27FDC0085E337 /* Main.storyboard */,
+				12E43BB71CD3CD710085E337 /* ClippingListViewController.swift */,
 				12E43B761CD27FDC0085E337 /* Assets.xcassets */,
 				12E43B781CD27FDC0085E337 /* LaunchScreen.storyboard */,
 				12E43B7B1CD27FDC0085E337 /* Info.plist */,
@@ -121,6 +129,7 @@
 				12E43B9F1CD285120085E337 /* Clipping+CoreDataProperties.swift */,
 				12E43BA01CD285120085E337 /* Clipping.swift */,
 				12E43BA91CD28AE40085E337 /* ScrapbookModel.swift */,
+				12E43BB51CD39C0B0085E337 /* CollectionListViewController.swift */,
 			);
 			path = Scrapbook;
 			sourceTree = "<group>";
@@ -281,9 +290,12 @@
 				12E43BA31CD285120085E337 /* Clipping+CoreDataProperties.swift in Sources */,
 				12E43BA21CD285120085E337 /* Collection.swift in Sources */,
 				12E43BA11CD285120085E337 /* Collection+CoreDataProperties.swift in Sources */,
+				12E43BBA1CD5E7250085E337 /* ClippingDetailViewController.swift in Sources */,
 				12E43B751CD27FDC0085E337 /* Scrapbook.xcdatamodeld in Sources */,
 				12E43BAA1CD28AE40085E337 /* ScrapbookModel.swift in Sources */,
+				12E43BB61CD39C0B0085E337 /* CollectionListViewController.swift in Sources */,
 				12E43B6D1CD27FDC0085E337 /* AppDelegate.swift in Sources */,
+				12E43BB81CD3CD710085E337 /* ClippingListViewController.swift in Sources */,
 				12E43BA41CD285120085E337 /* Clipping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,10 +8,10 @@
     </entity>
     <entity name="Collection" representedClassName=".Collection" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="own" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Clipping" inverseName="belong" inverseEntity="Clipping" syncable="YES"/>
+        <relationship name="own" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Clipping" inverseName="belong" inverseEntity="Clipping" syncable="YES"/>
     </entity>
     <elements>
         <element name="Clipping" positionX="36" positionY="81" width="128" height="105"/>
-        <element name="Collection" positionX="43" positionY="-234" width="128" height="73"/>
+        <element name="Collection" positionX="43" positionY="-234" width="128" height="75"/>
     </elements>
 </model>
