@@ -20,6 +20,8 @@ class ClippingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("wwwwwwwwwwww")
+        print(img)
         image.image =  UIImage(contentsOfFile: img) //display image from path
         note.text = label
         // Do any additional setup after loading the view.

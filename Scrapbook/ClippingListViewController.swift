@@ -8,15 +8,44 @@
 
 import UIKit
 
-class ClippingListViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ClippingListViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UISearchBarDelegate {
 
     var ifAll: Bool = false; // if this is all clips, if it is show edit button, if not show add button
     var clips: [Clipping] = []
+    var filteredClips: [Clipping] = []
     var collect: Collection?
     var imagePicker = UIImagePickerController()
     var book: ScrapbookModel = ScrapbookModel()
-    var note:String!
-    var image:String!
+    @IBOutlet weak var search: UISearchBar!
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
+    {
+       print("haaha")
+        if(collect == nil){ //all clipping
+            if searchText != ""
+            {
+            clips = book.Search(searchText)
+            print("COUNT \(clips.count)")
+            }
+            else
+            {
+                clips = book.GetClip()
+            }
+        }
+        else{
+            if searchText != ""
+            {
+            clips = book.Search2(searchText, collec: collect!)
+            print("COUNT2 \(clips.count)")
+            }
+            else
+            {
+                clips = collect?.own?.allObjects as! [Clipping]
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationNavigationController = segue.destinationViewController as! ClippingDetailViewController
@@ -28,12 +57,17 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("reload")
+        filteredClips = clips
+        search.delegate = self
         if ifAll
         {
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
+            self.navigationItem.title = "All Clippings"
         }
         else
         {
+            self.navigationItem.title = collect?.name
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:  UIBarButtonSystemItem.Add, target:  self, action: Selector("addClipping"))
         }
             
@@ -187,8 +221,11 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
         let cell = tableView.dequeueReusableCellWithIdentifier("Clipping", forIndexPath: indexPath)
         print("ahhah")
         cell.textLabel!.text = clips[indexPath.row].note
-        note = clips[indexPath.row].note
-        image = clips[indexPath.row].image
+        let imgPath: String = clips[indexPath.row].image!
+        cell.imageView?.image = UIImage(contentsOfFile: imgPath)
+        print("!!!!!!!!!!!!!!!!!!!!!!!")
+        print(imgPath)
+        //note = clips[indexPath.row].note
         // Configure the cell...
 
         return cell

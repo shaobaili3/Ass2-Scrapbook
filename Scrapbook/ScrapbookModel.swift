@@ -135,14 +135,41 @@ class ScrapbookModel{
         catch let error as NSError{
             print("Could search\(error), \(error.userInfo)")
         }
+        
         return re!
     }
   //search with collection parameter
+//    func Search2(keyword:String, collec: Collection)-> [Clipping]{
+//        let temp: [Clipping] = collec.own?.allObjects as! [Clipping]
+//        let predicate = NSPredicate(format: "SELF.note contains[cd] %@", keyword)
+//        (temp as NSArray).filteredArrayUsingPredicate(predicate)
+//        return temp
+//    }
+    
     func Search2(keyword:String, collec: Collection)-> [Clipping]{
-        let temp: [Clipping] = collec.own?.allObjects as! [Clipping]
+        let fetchRequest = NSFetchRequest(entityName: "Clipping")
         let predicate = NSPredicate(format: "note contains[cd] %@", keyword)
-        (temp as NSArray).filteredArrayUsingPredicate(predicate)
-        return temp
+        fetchRequest.predicate = predicate
+        var re: [Clipping]?
+        do{
+            re = try context.executeFetchRequest(fetchRequest) as? [Clipping]
+        }
+        catch let error as NSError{
+            print("Could search\(error), \(error.userInfo)")
+        }
+        
+        var re2: [Clipping] = []
+        
+        for clip in re!
+        {
+            if clip.belong == collec
+            {
+                re2.append(clip)
+            }
+        }
+        
+        return re2
     }
+    
 
 }

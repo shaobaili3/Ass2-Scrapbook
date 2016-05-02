@@ -98,7 +98,7 @@ class CollectionListViewController: UITableViewController {
         
         }
         else{
-        cell.textLabel?.text = "All Clipping"
+        cell.textLabel?.text = "All Clippings"
         print("ahahah\(book.GetClip().count)")
         }
         return cell
