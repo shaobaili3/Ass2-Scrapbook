@@ -20,12 +20,10 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
     {
-       print("haaha")
         if(collect == nil){ //all clipping
             if searchText != ""
             {
             clips = book.Search(searchText)
-            print("COUNT \(clips.count)")
             }
             else
             {
@@ -36,7 +34,6 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
             if searchText != ""
             {
             clips = book.Search2(searchText, collec: collect!)
-            print("COUNT2 \(clips.count)")
             }
             else
             {
@@ -57,7 +54,6 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("reload")
         filteredClips = clips
         search.delegate = self
         if ifAll
@@ -83,10 +79,12 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            print("dis")        })
+           // print("We can add function here when dismiss gallery or camerea")         
+        })
         //let newImg: UIImage = image
         let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        let fileURL = documentsURL.URLByAppendingPathComponent(String(NSDate()) + ".png")
+        let imgName: String = String(NSDate()) + ".png"
+        let fileURL = documentsURL.URLByAppendingPathComponent(imgName)
         let pngImageData = UIImagePNGRepresentation(image) //save as png
         let result = pngImageData!.writeToFile(fileURL.path!, atomically: true) //save to file
         //fileURL.path! use to display the image again
@@ -95,8 +93,6 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
         else{
             print("save error")
         }
-
-        print("xxxxx")
         
         //Create the AlertController
         let alert: UIAlertController = UIAlertController(title: "Create New Collection", message: "", preferredStyle: .Alert)
@@ -118,7 +114,8 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
         //Create and an option action
         let createAction: UIAlertAction = UIAlertAction(title: "Create", style: .Default) { action -> Void in
             if alert.textFields![0].text != nil{
-                let newClip: Clipping = self.book.CreateClipp(alert.textFields![0].text!, image: fileURL.path!)
+                //let newClip: Clipping = self.book.CreateClipp(alert.textFields![0].text!, image: fileURL.path!)
+                let newClip: Clipping = self.book.CreateClipp(alert.textFields![0].text!, image: imgName)
                 self.clips.append(newClip)
                 self.book.addCliptoCollec(newClip, collec: self.collect!)
             }
@@ -132,18 +129,7 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
         alert.view.setNeedsLayout() //kill bug
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
-
-
-//    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary?){
-//        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-//            print("dis")        })
-//        print(image)
-//        print(editingInfo)
-//        //imageView.image = image
-//        
-//    }
-    
+        
     func addClipping() {
         //Create the AlertController
         let actionSheetController: UIAlertController = UIAlertController(title: "Create New Clipping", message: "", preferredStyle: .ActionSheet)
@@ -212,22 +198,20 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("hhe \(clips.count)")
         return clips.count
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Clipping", forIndexPath: indexPath)
-        print("ahhah")
         cell.textLabel!.text = clips[indexPath.row].note
         let imgPath: String = clips[indexPath.row].image!
-        cell.imageView?.image = UIImage(contentsOfFile: imgPath)
-        print("!!!!!!!!!!!!!!!!!!!!!!!")
-        print(imgPath)
+        //cell.imageView?.image = UIImage(contentsOfFile: imgPath)
+        let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+        let fileURL = documentsURL.URLByAppendingPathComponent(imgPath)
+        cell.imageView?.image = UIImage(contentsOfFile: fileURL.path!)
         //note = clips[indexPath.row].note
         // Configure the cell...
-
         return cell
     }
 

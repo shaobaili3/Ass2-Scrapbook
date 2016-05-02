@@ -15,14 +15,14 @@ class ClippingDetailViewController: UIViewController {
     
 
     @IBOutlet weak var image: UIImageView!
-    
     @IBOutlet weak var note: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("wwwwwwwwwwww")
-        print(img)
-        image.image =  UIImage(contentsOfFile: img) //display image from path
+        let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+        let fileURL = documentsURL.URLByAppendingPathComponent(img)
+        image.image = UIImage(contentsOfFile: fileURL.path!)
+        //image.image =  UIImage(contentsOfFile: img) //display image from path
         note.text = label
         // Do any additional setup after loading the view.
         

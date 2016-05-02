@@ -12,20 +12,7 @@ import CoreData
 class ScrapbookModel{
     //let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
-    //for (index, value) in shoppingList.enumerate() {
-    //print("Item \(index + 1): \(value)")
-    
-//    2) Get all collections (returns an array of Collections). Note, if you’re developing for Android, it is inside
-//    this function that you create instances of your basic Collection class and return an array of them.
-//    3) Create a new clipping (pass this function new clipping details: ie an image and notes string)
-//    4) Android only: Get all clippings that belong to a certain collection (pass in the primary key of the
-//    Collection). Note iOS: you can forgo implementing this method, as you can access a Collection’s
-//    Clippings directly from a Collection object using the dot syntax.
-//    5) Add a Clipping to a Collection
 
-    
-    
     //Create a new collection
     func CreateCollec(name: String) -> Collection {
         let newCollection: Collection = NSEntityDescription.insertNewObjectForEntityForName("Collection", inManagedObjectContext: context) as! Collection
@@ -92,13 +79,6 @@ class ScrapbookModel{
             print("Could not add Cliping to Collection \(error), \(error.userInfo)")
         }
     }
-    //    6) Delete a Collection
-    //    7) Delete a Clipping
-    //    8) Search function: Get all clippings whos notes attribute contains a provided search string (pass in a
-    //    search string, return an array of Clippings). Make this search case insensitive. iOS: you must use
-    //    NSPredicate for this.
-    //    9) Search function #2: Same as above but this method should also take a Collection parameter (primary
-    //    key on Android) that searches for the search string in Clippings contained within the provided Collection. Make this search case insensitive.
     
     //Delete a Collection
     func delCollec(collec: Collection){
@@ -138,14 +118,7 @@ class ScrapbookModel{
         
         return re!
     }
-  //search with collection parameter
-//    func Search2(keyword:String, collec: Collection)-> [Clipping]{
-//        let temp: [Clipping] = collec.own?.allObjects as! [Clipping]
-//        let predicate = NSPredicate(format: "SELF.note contains[cd] %@", keyword)
-//        (temp as NSArray).filteredArrayUsingPredicate(predicate)
-//        return temp
-//    }
-    
+     //search with collection parameter
     func Search2(keyword:String, collec: Collection)-> [Clipping]{
         let fetchRequest = NSFetchRequest(entityName: "Clipping")
         let predicate = NSPredicate(format: "note contains[cd] %@", keyword)
