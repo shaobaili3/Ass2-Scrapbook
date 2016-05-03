@@ -25,8 +25,6 @@ class ClippingDetailViewController: UIViewController {
         //image.image =  UIImage(contentsOfFile: img) //display image from path
         note.text = label
         // Do any additional setup after loading the view.
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

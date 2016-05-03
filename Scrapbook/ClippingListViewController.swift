@@ -228,9 +228,26 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+          
             
+            // Delete image file in the application
+            let fileManager = NSFileManager.defaultManager()
+            let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            let fileURL = documentsURL.URLByAppendingPathComponent(clips[indexPath.row].image!)
+            do {
+                try fileManager.removeItemAtPath(fileURL.path!)
+            }
+            catch let error as NSError {
+                print("Ooops! Something went wrong: \(error)")
+            }
+            
+            //delete in data base
             book.delClipping(clips[indexPath.row])
+            
+            //delete in clipping array
             clips.removeAtIndex(indexPath.row)
+            
+            //delete in interface
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
