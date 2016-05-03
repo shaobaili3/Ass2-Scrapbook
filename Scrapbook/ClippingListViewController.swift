@@ -49,6 +49,8 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
         let row = self.tableView.indexPathForSelectedRow?.row
         destinationNavigationController.label = clips[row!].note
         destinationNavigationController.img = clips[row!].image
+        let time = clips[row!].dataCreated
+        destinationNavigationController.time = String(time!)
     }
 
     
@@ -210,6 +212,8 @@ class ClippingListViewController: UITableViewController, UIImagePickerController
         let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         let fileURL = documentsURL.URLByAppendingPathComponent(imgPath)
         cell.imageView?.image = UIImage(contentsOfFile: fileURL.path!)
+        let data = clips[indexPath.row].dataCreated
+        cell.detailTextLabel!.text = String(data!)
         //note = clips[indexPath.row].note
         // Configure the cell...
         return cell

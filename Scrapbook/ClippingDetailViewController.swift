@@ -12,10 +12,12 @@ class ClippingDetailViewController: UIViewController {
 
     var img: String!
     var label: String!
+    var time: String!
     
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var note: UILabel!
+    @IBOutlet weak var data: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class ClippingDetailViewController: UIViewController {
         image.image = UIImage(contentsOfFile: fileURL.path!)
         //image.image =  UIImage(contentsOfFile: img) //display image from path
         note.text = label
+        data.text = time
         // Do any additional setup after loading the view.
     }
 
